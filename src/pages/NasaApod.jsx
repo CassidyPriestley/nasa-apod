@@ -4,11 +4,12 @@ import "./NasaApod.css";
 
 export const NasaApod = () => {
   const [photoData, setPhotoData] = useState([]);
-  const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`;
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(url);
+      const res = await fetch(
+        `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`
+      );
       const json = await res.json();
       setPhotoData(json);
     }
